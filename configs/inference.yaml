@@ -1,0 +1,26 @@
+# Violation-detection pipeline settings (inference/run_pipeline.py).
+
+model:
+  conf_threshold: 0.50      # YOLO detection confidence
+
+tracker: bytetrack.yaml     # Ultralytics tracker config
+
+frame:
+  target_size: [1920, 1080] # every frame is resized to FHD before processing
+  frame_skip: 1             # 1 = process every frame, 2 = every other frame, ...
+
+sidewalk:
+  confirm_threshold: 10     # frames inside ROI before a violation is confirmed
+  roi_check_ratio: 0.1      # height ratio of the bbox bottom strip sampled for ROI test
+  roi_check_n_points: 5     # points sampled along the bottom strip
+  roi_check_require: 3      # points that must fall inside the ROI polygon
+
+motion:
+  stationary_threshold: 180 # frames without movement before a track counts as stationary
+  position_tolerance: 3     # px movement tolerated while still counting as stationary
+
+helmet:
+  # class-name spellings treated as "no helmet" (normalized to lowercase)
+  no_helmet_classes: [no_helmet, no-helmet, nohelmet, "no helmet"]
+
+video_extensions: [.mp4, .mov]

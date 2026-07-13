@@ -1,0 +1,9 @@
+ultralytics>=8.3
+torch>=2.0            # install the build matching your CUDA version: https://pytorch.org
+torchvision
+opencv-python>=4.8
+numpy>=1.24
+pandas>=2.0
+PyYAML>=6.0
+matplotlib>=3.7
+iterative-stratification>=0.1.7   # provides iterstrat.ml_stratifiers

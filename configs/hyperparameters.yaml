@@ -1,0 +1,39 @@
+# Fixed hyperparameter set used for every model variant and every fold.
+# Kept identical across all runs so that model comparisons and K-Fold CV
+# reflect architecture differences only, not tuning differences.
+# See docs/methodology.md for the rationale behind fixing these values.
+
+train:
+  # Regularization & optimization
+  optimizer: AdamW
+  dropout: 0.2
+  weight_decay: 0.0005
+
+  # Learning rate
+  lr0: 0.005
+  lrf: 0.1
+
+  # Training settings
+  imgsz: 512        # the S/M/L size-comparison experiment used 640
+  batch: 16
+  epochs: 100
+  patience: 20
+
+  # Misc
+  pretrained: true
+  save: true
+  workers: 4
+
+# The six model variants compared in the study.
+model_variants: [yolov8n, yolov8s, yolo11n, yolo11s, yolo26n, yolo26s]
+
+# Multilabel Stratified K-Fold settings (see data_preparation/stratified_kfold_split.py)
+kfold:
+  k: 5
+  seed: 12
+
+# Detection classes
+classes:
+  0: motorcycle
+  1: with_helmet
+  2: no_helmet

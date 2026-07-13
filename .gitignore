@@ -1,0 +1,28 @@
+# Model weights / archives — never commit (size + privacy)
+*.pt
+*.onnx
+*.engine
+*.zip
+
+# Datasets and raw media — never commit (PDPA / privacy)
+dataset/
+datasets/
+*.mp4
+*.mov
+*.avi
+
+# Training / inference outputs
+runs/
+outputs/
+snapshots/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
